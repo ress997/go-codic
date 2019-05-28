@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang
+    working_directory: /go/src/github.com/ress997/go-codic
+    steps:
+      - checkout
+      - run: go get -v -t -d ./...
+      - run: go test -v ./...
